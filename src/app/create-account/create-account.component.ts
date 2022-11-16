@@ -10,7 +10,12 @@ import { ReCaptchaV3Service } from 'ng-recaptcha';
 })
 export class CreateAccountComponent implements OnInit {
 
-  constructor(private recaptchaV3Service: ReCaptchaV3Service) {
+  visibilityOfForm = false;
+
+  constructor(private recaptchaV3Service: ReCaptchaV3Service) {}
+
+  public hiddenForm(): void {
+    this.visibilityOfForm = !this.visibilityOfForm;
   }
 
   public send(form: NgForm): void {
