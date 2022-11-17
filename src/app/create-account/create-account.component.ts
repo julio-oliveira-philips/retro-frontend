@@ -41,6 +41,11 @@ export class CreateAccountComponent implements OnInit {
       email:    ['', [ Validators.required, Validators.email ]],
       password: ['', [ Validators.required, Validators.minLength(6) ]]
     });
+
+    this.formLogin = this.formBuilder.group({
+      email:    ['', [ Validators.required, Validators.email ]],
+      password: ['', [ Validators.required, Validators.minLength(6) ]]
+    });
   }
 
   onSubmit(form: FormGroupDirective) {

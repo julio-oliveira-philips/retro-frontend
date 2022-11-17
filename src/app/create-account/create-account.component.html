@@ -26,7 +26,7 @@
 
                 <div class="py-1">
 
-                  <button type="button" class="btn btn-lg btn-outline-primary col-6" (click)="this.hiddenForm()"> Cadastrar-se </button>
+                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Cadastrar-se </button>
 
                 </div>
 
@@ -54,7 +54,7 @@
 
                 <div class="py-1">
 
-                  <button type="button" class="btn btn-lg btn-outline-primary col-6" (click)="this.hiddenForm()"> Entrar </button>
+                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Entrar </button>
 
                 </div>
 
@@ -131,7 +131,7 @@
 
                   <div class="m-5">
 
-                    <button type="submit" class="btn btn-lg btn-outline-success col-10"> Cadastrar-se </button>
+                    <button type="submit" [disabled]="!this.userAccountForm.valid" class="btn btn-lg btn-success col-10"> Cadastrar-se </button>
 
                   </div>
 
@@ -157,18 +157,18 @@
 
                 <div class="px-5">
 
-                  <form #form="ngForm" [formGroup]="userAccountForm" (ngSubmit)="onSubmit(form)">
+                  <form #form="ngForm" [formGroup]="formLogin" (ngSubmit)="onSubmit(form)">
 
                     <div class="m-5 px-5">
 
                       <input class="form-control" formControlName="email" type="text" placeholder="E-mail" aria-label="default input example">
 
                       <div class="text-start">
-                        <p class="error-message" *ngIf="userAccountForm.get('email')?.errors?.['required'] && userAccountForm.get('email')?.touched"> Email é obrigatório </p>
+                        <p class="error-message" *ngIf="formLogin.get('email')?.errors?.['required'] && formLogin.get('email')?.touched"> Email é obrigatório </p>
                       </div>
 
                       <div class="text-start">
-                        <p class="error-message" *ngIf="userAccountForm.get('email')?.errors?.['email'] && userAccountForm.get('email')?.touched"> Email inválido </p>
+                        <p class="error-message" *ngIf="formLogin.get('email')?.errors?.['email'] && formLogin.get('email')?.touched"> Email inválido </p>
                       </div>
                       
                     </div>
@@ -178,18 +178,18 @@
                       <input class="form-control" formControlName="password" type="password" placeholder="Senha" aria-label="default input example">
 
                       <div class="text-start">
-                        <p class="error-message" *ngIf="userAccountForm.get('password')?.errors?.['required'] && userAccountForm.get('password')?.touched"> Senha é obrigatório </p>
+                        <p class="error-message" *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.touched"> Senha é obrigatório </p>
                       </div>
 
                       <div class="text-start">
-                        <p class="error-message" *ngIf="userAccountForm.get('password')?.errors?.['minlength'] && userAccountForm.get('password')?.touched"> A senha tem que ter pelo menos 6 caracteres </p>
+                        <p class="error-message" *ngIf="formLogin.get('password')?.errors?.['minlength'] && formLogin.get('password')?.touched"> A senha tem que ter pelo menos 6 caracteres </p>
                       </div>
 
                     </div>
 
                     <div class="m-5 px-5">
 
-                      <button type="submit" class="btn btn-lg btn-outline-success col-10"> Entrar </button>
+                      <button type="submit" [disabled]="!formLogin.valid" class="btn btn-lg btn-success col-10"> Entrar </button>
 
                     </div>
 
