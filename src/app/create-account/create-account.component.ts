@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 
@@ -11,18 +11,21 @@ import { ReCaptchaV3Service } from 'ng-recaptcha';
 export class CreateAccountComponent implements OnInit {
 
   visibilityOfForm = false;
+  userAccountForm!: FormGroup;
+  formLogin!: FormGroup;
 
-  constructor(private recaptchaV3Service: ReCaptchaV3Service) {}
+  constructor(
+    private recaptchaV3Service: ReCaptchaV3Service,
+    private formBuilder: FormBuilder
+  ) {}
 
   public hiddenForm(): void {
     this.visibilityOfForm = !this.visibilityOfForm;
   }
 
-  public send(form: NgForm): void {
+  public send(form: FormGroupDirective): void {
     if (form.invalid) {
-      for (const control of Object.keys(form.controls)) {
-        form.controls[control].markAsTouched();
-      }
+      console.log("Form invalid");
       return;
     }
 
@@ -33,6 +36,16 @@ export class CreateAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userAccountForm = this.formBuilder.group({
+      name:     ['', [ Validators.required, Validators.minLength(6) ]],
+      email:    ['', [ Validators.required, Validators.email ]],
+      password: ['', [ Validators.required, Validators.minLength(6) ]]
+    });
+  }
+
+  onSubmit(form: FormGroupDirective) {
+    console.log(form.value);
+    console.log(form.valid);
   }
 
 }
