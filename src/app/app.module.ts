@@ -11,13 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AllRetrospectivesComponent } from './all-retrospectives/all-retrospectives.component';
 import { ListedActionsComponent } from './listed-actions/listed-actions.component';
+import { ActionsBurndownComponent } from './actions-burndown/actions-burndown.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateAccountComponent,
     AllRetrospectivesComponent,
-    ListedActionsComponent
+    ListedActionsComponent,
+    ActionsBurndownComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { ListedActionsComponent } from './listed-actions/listed-actions.componen
     ReactiveFormsModule,
     RecaptchaV3Module,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgApexchartsModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
