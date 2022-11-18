@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuardService } from './auth-guard.service';
+
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { AllRetrospectivesComponent } from './all-retrospectives/all-retrospectives.component';
+import { ListedActionsComponent } from './listed-actions/listed-actions.component';
+import { ActionsBurndownComponent } from './actions-burndown/actions-burndown.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 const routes: Routes = [
-  { path: '**', component: CreateAccountComponent },
+  { path: '**', component: NavigationBarComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: CreateAccountComponent  }
+  { path: 'login', component: NavigationBarComponent  }
 ];
 
 @NgModule({
