@@ -1,0 +1,40 @@
+<div class="table-responsive">
+
+  <table class="table table-striped table-hover table-bordered">
+
+    <caption class="caption-top"> Todas as retrospectivas </caption>
+
+    <thead>
+
+      <tr class="text-center">
+        <th scope="col">#</th>
+        <th scope="col"> Nome da retrospectiva (Sprint) </th>
+        <th scope="col"> Data de criação </th>
+        <th scope="col"> Ações </th>
+        <th scope="col"> Finalizada </th>
+      </tr>
+
+    </thead>
+
+    <tbody class="table-group-divider">
+
+      <tr *ngFor="let retrospective of allRetrospectives, index as i">
+
+        <th scope="row"> {{ i+1 }} </th>
+        <td> {{ retrospective.retrospectiveName }} </td>
+        <td> {{ retrospective.createDate | date : 'dd/MM/yyyy' }} </td>
+        <td> {{ retrospective.actions }} </td>
+
+        <td>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [value]="retrospective.finished" [checked]="retrospective.finished" disabled>
+          </div>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

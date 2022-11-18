@@ -9,11 +9,13 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { environment } from 'src/environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { AllRetrospectivesComponent } from './all-retrospectives/all-retrospectives.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AllRetrospectivesComponent
   ],
   imports: [
     BrowserModule,
