@@ -72,10 +72,30 @@
                 <h1 id="title-create-account">Cadastrar conta</h1>
               </div>
               
-              <div class="m-3">
-                <i class="bi bi-facebook mx-4"></i>
-                <i class="bi bi-google mx-4"></i>
-                <i class="bi bi-linkedin mx-4"></i>
+              <div class="container m-3">
+
+                <div class="row justify-content-center">
+
+                  <div class="col-2">
+
+                    <div class="mb-3">
+
+                      <button (click)="loginWithFacebook()" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-facebook"></i>
+                      </button>
+                      
+                    </div>
+
+                  </div>
+                  
+                  <div class="col-2">
+
+                    <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+
+                  </div>
+
+                </div>
+
               </div>
 
               <div class="pt-1">
@@ -147,10 +167,30 @@
 
                 <h1 id="title-create-account">Acessar o Retrô</h1>
 
-                <div class="m-4">
-                  <i class="bi bi-facebook mx-4"></i>
-                  <i class="bi bi-google mx-4"></i>
-                  <i class="bi bi-linkedin mx-4"></i>
+                <div class="container m-3">
+
+                  <div class="row justify-content-center">
+
+                    <div class="col-2">
+
+                      <div class="mb-3">
+
+                        <button (click)="loginWithFacebook()" class="btn btn-outline-primary btn-sm">
+                          <i class="bi bi-facebook"></i>
+                        </button>
+                        
+                      </div>
+
+                    </div>
+                    
+                    <div class="col-2">
+
+                      <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+
+                    </div>
+
+                  </div>
+
                 </div>
 
                 <p>Ou use seu email e senha para acessar</p>
