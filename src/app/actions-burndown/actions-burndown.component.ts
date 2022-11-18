@@ -40,7 +40,7 @@ export class ActionsBurndownComponent implements OnInit {
         type: "bar"
       },
       title: {
-        text: "Burndown das ações"
+        text: "Gráfico de ações por retrospectiva"
       },
       xaxis: {
         categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]

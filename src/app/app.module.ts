@@ -13,6 +13,8 @@ import { AllRetrospectivesComponent } from './all-retrospectives/all-retrospecti
 import { ListedActionsComponent } from './listed-actions/listed-actions.component';
 import { ActionsBurndownComponent } from './actions-burndown/actions-burndown.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CreateAccountComponent,
     AllRetrospectivesComponent,
     ListedActionsComponent,
-    ActionsBurndownComponent
+    ActionsBurndownComponent,
+    NavigationBarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
