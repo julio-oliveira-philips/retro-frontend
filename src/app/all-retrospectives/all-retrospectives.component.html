@@ -12,6 +12,7 @@
         <th scope="col"> Data de criação </th>
         <th scope="col"> Ações </th>
         <th scope="col"> Finalizada </th>
+        <th scope="col"> Editar </th>
       </tr>
 
     </thead>
@@ -28,6 +29,13 @@
         <td>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" [value]="retrospective.finished" [checked]="retrospective.finished" disabled>
+          </div>
+        </td>
+
+        <td>
+          <div class="container text-center">
+            <i class="bi bi-pencil-square mx-1"></i>
+            <i class="bi bi-trash mx-1"></i>
           </div>
         </td>
 
