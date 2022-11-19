@@ -16,6 +16,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModalNewRetrospectiveComponent } from './modal-new-retrospective/modal-new-retrospective.component';
+import { ModalEditRetrospectiveComponent } from './modal-edit-retrospective/modal-edit-retrospective.component';
+import { ModalEditActionComponent } from './modal-edit-action/modal-edit-action.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ModalNewRetrospectiveComponent } from './modal-new-retrospective/modal-
     ActionsBurndownComponent,
     NavigationBarComponent,
     DashboardComponent,
-    ModalNewRetrospectiveComponent
+    ModalNewRetrospectiveComponent,
+    ModalEditRetrospectiveComponent,
+    ModalEditActionComponent
   ],
   imports: [
     BrowserModule,

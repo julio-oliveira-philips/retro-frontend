@@ -29,18 +29,33 @@
         <td> {{ retrospective.createDate | date : 'dd/MM/yyyy' }} </td>
 
         <td>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" [value]="retrospective.finished" [checked]="retrospective.finished" disabled>
+
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-1">
+
+                <input class="form-check-input" type="checkbox" [value]="retrospective.finished" [checked]="retrospective.finished"
+                  disabled>
+
+              </div>
+
+            </div>
+
           </div>
+
         </td>
 
         <td>
 
           <div class="container text-center">
             
-            <button class="btn btn-outline-secondary btn-sm mx-1">
+            <button type="button" class="btn btn-outline-secondary btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#modal-edit-retrospective">
               <i class="bi bi-pencil-square mx-1"></i>
             </button>
+
+            <app-modal-edit-retrospective></app-modal-edit-retrospective>
 
             <button class="btn btn-outline-danger btn-sm mx-1">
               <i class="bi bi-trash mx-1"></i>

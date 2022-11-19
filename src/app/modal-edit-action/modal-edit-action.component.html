@@ -1,0 +1,77 @@
+<div class="modal fade" id="modal-edit-action">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h1 class="modal-title fs-5" id="staticBackdropLabel"> Editar ação de retrospectiva </h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <div class="modal-body">
+          
+          <form [formGroup]="editActionForm" #form="ngForm">
+                
+            <div class="m-1 px-1">
+
+              <div class="m-4 px-5">
+
+                <input class="form-control" [ngClass]="{ 'is-invalid': editActionForm.get('descriptionAction')?.errors && editActionForm.get('descriptionAction')?.touched }" type="text" placeholder="Descrição da ação" aria-label="default input example" formControlName="descriptionAction">
+
+                <div class="invalid-feedback" *ngIf="editActionForm.get('descriptionAction')?.errors?.['required'] && editActionForm.get('descriptionAction')?.touched" >
+                  Este campo é obrigatório
+                </div>
+
+                <div class="invalid-feedback" *ngIf="editActionForm.get('descriptionAction')?.errors?.['minlength'] && editActionForm.get('descriptionAction')?.touched">
+                  Este campo tem que ter pelo menos 6 caracteres
+                </div>
+
+              </div>
+
+              <div class="m-4 px-5">
+
+                <input class="form-control" [ngClass]="{ 'is-invalid': editActionForm.get('owner')?.errors && editActionForm.get('owner')?.touched }" type="text" placeholder="Responsável" aria-label="default input example" formControlName="owner">
+
+                <div class="invalid-feedback" *ngIf="editActionForm.get('owner')?.errors?.['required'] && editActionForm.get('owner')?.touched">
+                  Este campo é obrigatório
+                </div>
+
+                <div class="invalid-feedback" *ngIf="editActionForm.get('owner')?.errors?.['minlength'] && editActionForm.get('owner')?.touched">
+                  Este campo tem que ter pelo menos 6 caracteres
+                </div>
+
+              </div>
+
+              <div class="m-4 px-5">
+
+                <input  type="checkbox" placeholder="Finalizada" aria-label="default input example" formControlName="finished">
+                Finalizada
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Fechar </button>
+
+          <button type="submit" class="btn btn-primary"> Salvar </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

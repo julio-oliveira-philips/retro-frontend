@@ -43,13 +43,6 @@ export class ListedActionsComponent implements OnInit {
       owner: 'fulano de tal',
       finished: false
     },
-    {
-      retrospectiveCode: 6,
-      actionDescription: 'Realizar atividade 1',
-      createDate: new Date('2021-04-23T10:00:00.000Z'),
-      owner: 'fulano de tal',
-      finished: true
-    }
   ];
 
   constructor() { }
