@@ -10,7 +10,8 @@
         <th scope="col"></th>
         <th scope="col"> Nome da retrospectiva (Sprint) </th>
         <th scope="col"> Data de criação </th>
-        <th scope="col"> Ações </th>
+        <th scope="col"> Data de início </th>
+        <th scope="col"> Data do fim </th>
         <th scope="col"> Finalizada </th>
         <th scope="col"> Editar </th>
       </tr>
@@ -24,7 +25,8 @@
         <th scope="row"> {{ i+1 }} </th>
         <td> {{ retrospective.retrospectiveName }} </td>
         <td> {{ retrospective.createDate | date : 'dd/MM/yyyy' }} </td>
-        <td> {{ retrospective.actions }} </td>
+        <td> {{ retrospective.createDate | date : 'dd/MM/yyyy' }} </td>
+        <td> {{ retrospective.createDate | date : 'dd/MM/yyyy' }} </td>
 
         <td>
           <div class="form-check">
@@ -33,10 +35,19 @@
         </td>
 
         <td>
+
           <div class="container text-center">
-            <i class="bi bi-pencil-square mx-1"></i>
-            <i class="bi bi-trash mx-1"></i>
+            
+            <button class="btn btn-outline-secondary btn-sm mx-1">
+              <i class="bi bi-pencil-square mx-1"></i>
+            </button>
+
+            <button class="btn btn-outline-danger btn-sm mx-1">
+              <i class="bi bi-trash mx-1"></i>
+            </button>
+            
           </div>
+
         </td>
 
       </tr>

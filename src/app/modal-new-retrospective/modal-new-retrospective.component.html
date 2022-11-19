@@ -1,0 +1,78 @@
+<div class="modal fade" id="modal-new-retrospective">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h1 class="modal-title fs-5" id="staticBackdropLabel"> Criar nova retrospectiva </h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <div class="modal-body">
+          
+          <form [formGroup]="createRetrospectiveForm" #form="ngForm">
+                
+            <div class="m-1 px-1">
+
+              <div class="m-4 px-5">
+
+                <input class="form-control" [ngClass]="{ 'is-invalid': createRetrospectiveForm.get('nameRetrospective')?.errors && createRetrospectiveForm.get('nameRetrospective')?.touched }" type="text" placeholder="Nome da retrospectiva" aria-label="default input example" formControlName="nameRetrospective">
+
+                <div class="invalid-feedback" *ngIf="createRetrospectiveForm.get('nameRetrospective')?.errors?.['required'] && createRetrospectiveForm.get('nameRetrospective')?.touched" >
+                  Este campo é obrigatório
+                </div>
+
+                <div class="invalid-feedback" *ngIf="createRetrospectiveForm.get('nameRetrospective')?.errors?.['minlength'] && createRetrospectiveForm.get('nameRetrospective')?.touched">
+                  Este campo tem que ter pelo menos 6 caracteres
+                </div>
+
+              </div>
+
+              <div class="m-4 px-5">
+
+                <input class="form-control" [ngClass]="{ 'is-invalid': createRetrospectiveForm.get('startDate')?.errors && createRetrospectiveForm.get('startDate')?.touched }" type="date" placeholder="Data de início"
+                  aria-label="default input example" formControlName="startDate">
+
+                <div class="invalid-feedback" *ngIf="createRetrospectiveForm.get('startDate')?.errors?.['required'] && createRetrospectiveForm.get('startDate')?.touched">
+                  Este campo é obrigatório
+                </div>
+
+              </div>
+
+              <div class="m-4 px-5">
+
+                <input class="form-control" [ngClass]="{ 'is-invalid': createRetrospectiveForm.get('endDate')?.errors && createRetrospectiveForm.get('endDate')?.touched }" type="date" placeholder="Data do fim" aria-label="default input example" formControlName="endDate">
+
+                <div class="invalid-feedback" *ngIf="createRetrospectiveForm.get('endDate')?.errors?.['required'] && createRetrospectiveForm.get('endDate')?.touched">
+                  Este campo é obrigatório
+                </div>
+
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Fechar </button>
+
+          <button type="submit" class="btn btn-primary"> Salvar </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

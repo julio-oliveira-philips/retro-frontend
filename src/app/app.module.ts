@@ -15,6 +15,7 @@ import { ActionsBurndownComponent } from './actions-burndown/actions-burndown.co
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ModalNewRetrospectiveComponent } from './modal-new-retrospective/modal-new-retrospective.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ListedActionsComponent,
     ActionsBurndownComponent,
     NavigationBarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalNewRetrospectiveComponent
   ],
   imports: [
     BrowserModule,

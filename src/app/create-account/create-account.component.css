@@ -11,9 +11,3 @@
 #title-welcome, #label-personal-informations {
   color: white;
 }
-
-.error-message {
-  color: red;
-  font-size: x-small;
-  margin: 3% 0% 0% 3%;
-}
