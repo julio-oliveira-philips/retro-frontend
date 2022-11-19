@@ -14,7 +14,7 @@
 
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body text-start">
           
           <form [formGroup]="editRetrospectiveForm" #form="ngForm">
                 
@@ -22,7 +22,8 @@
 
               <div class="m-4 px-5">
 
-                <input class="form-control" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('nameRetrospective')?.errors && editRetrospectiveForm.get('nameRetrospective')?.touched }" type="text" placeholder="Nome da retrospectiva" aria-label="default input example" formControlName="nameRetrospective">
+                <label class="py-2" for="nameRetrospective"> Nome da retrospectiva </label>
+                <input class="form-control" id="nameRetrospective" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('nameRetrospective')?.errors && editRetrospectiveForm.get('nameRetrospective')?.touched }" type="text" placeholder="Nome da retrospectiva" aria-label="default input example" formControlName="nameRetrospective">
 
                 <div class="invalid-feedback" *ngIf="editRetrospectiveForm.get('nameRetrospective')?.errors?.['required'] && editRetrospectiveForm.get('nameRetrospective')?.touched" >
                   Este campo é obrigatório
@@ -34,9 +35,10 @@
 
               </div>
 
-              <div class="m-4 px-5">
+              <div class="form-group m-4 px-5">
 
-                <input class="form-control" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('startDate')?.errors && editRetrospectiveForm.get('startDate')?.touched }" type="date" placeholder="Data de início"
+                <label class="py-2" for="startDate"> Data de início da retrospectiva </label>
+                <input class="form-control" id="startDate" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('startDate')?.errors && editRetrospectiveForm.get('startDate')?.touched }" type="date" placeholder="Data de início"
                   aria-label="default input example" formControlName="startDate">
 
                 <div class="invalid-feedback" *ngIf="editRetrospectiveForm.get('startDate')?.errors?.['required'] && editRetrospectiveForm.get('startDate')?.touched">
@@ -47,7 +49,8 @@
 
               <div class="m-4 px-5">
 
-                <input class="form-control" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('endDate')?.errors && editRetrospectiveForm.get('endDate')?.touched }" type="date" placeholder="Data do fim" aria-label="default input example" formControlName="endDate">
+                <label class="py-2" for="endDate"> Data do fim da retrospectiva </label>
+                <input class="form-control" id="endDate" [ngClass]="{ 'is-invalid': editRetrospectiveForm.get('endDate')?.errors && editRetrospectiveForm.get('endDate')?.touched }" type="date" placeholder="Data do fim" aria-label="default input example" formControlName="endDate">
 
                 <div class="invalid-feedback" *ngIf="editRetrospectiveForm.get('endDate')?.errors?.['required'] && editRetrospectiveForm.get('endDate')?.touched">
                   Este campo é obrigatório
@@ -55,7 +58,7 @@
 
               </div>
 
-              <div class="m-4 px-5">
+              <div class="text-center m-4 px-5">
 
                 <input  type="checkbox" placeholder="Finalizada" aria-label="default input example" formControlName="finished">
                 Finalizada
