@@ -20,13 +20,15 @@
 
                 <div class="py-5 mx-4">
 
-                  <p id="label-personal-informations">Para se conectar conosco, por favor, faça login com suas informações pessoais</p>
+                  <p id="label-personal-informations">Para se conectar conosco, por favor, faça login com suas
+                    informações pessoais</p>
 
                 </div>
 
                 <div class="py-1">
 
-                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Cadastrar-se </button>
+                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Cadastrar-se
+                  </button>
 
                 </div>
 
@@ -48,13 +50,15 @@
 
                 <div class="py-5 mx-4">
 
-                  <p id="label-personal-informations">Cadastre suas informações pessoais para criarmos uma conta de usuário</p>
+                  <p id="label-personal-informations">Cadastre suas informações pessoais para criarmos uma conta de
+                    usuário</p>
 
                 </div>
 
                 <div class="py-1">
 
-                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Entrar </button>
+                  <button type="button" class="btn btn-lg btn-primary col-6" (click)="this.hiddenForm()"> Entrar
+                  </button>
 
                 </div>
 
@@ -71,7 +75,7 @@
               <div class="py-2">
                 <h1 id="title-create-account">Cadastrar conta</h1>
               </div>
-              
+
               <div class="container m-3">
 
                 <div class="row justify-content-center">
@@ -83,11 +87,11 @@
                       <button (click)="loginWithFacebook()" class="btn btn-outline-primary btn-sm">
                         <i class="bi bi-facebook"></i>
                       </button>
-                      
+
                     </div>
 
                   </div>
-                  
+
                   <div class="col-2">
 
                     <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
@@ -103,55 +107,70 @@
               </div>
 
               <form [formGroup]="userAccountForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
-                
+
                 <div class="m-5 px-5">
 
                   <div class="m-4 px-5">
 
-                    <input ngModel required class="form-control" type="text" placeholder="Nome completo" aria-label="default input example" formControlName="name">
+                    <input
+                      [ngClass]="{ 'is-invalid': userAccountForm.get('name')?.errors && userAccountForm.get('name')?.touched }"
+                      class="form-control" type="text" placeholder="Nome completo" aria-label="default input example"
+                      formControlName="name">
 
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('name')?.errors?.['required'] && userAccountForm.get('name')?.touched"> Nome é obrigatório </p>
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('name')?.errors?.['required'] && userAccountForm.get('name')?.touched">
+                      Nome é obrigatório
                     </div>
 
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('name')?.errors?.['minlength'] && userAccountForm.get('name')?.touched"> O nome completo tem que ter pelo menos 6 caracteres </p>
-                    </div>
-
-                  </div>
-
-                  <div class="m-4 px-5">
-
-                    <input ngModel required class="form-control" type="text" placeholder="E-mail"
-                      aria-label="default input example" formControlName="email">
-
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('email')?.errors?.['required'] && userAccountForm.get('email')?.touched"> Email é obrigatório </p>
-                    </div>
-
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('email')?.errors?.['email'] && userAccountForm.get('email')?.touched"> Email inválido </p>
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('name')?.errors?.['minlength'] && userAccountForm.get('name')?.touched">
+                      O nome completo tem que ter pelo menos 6 caracteres
                     </div>
 
                   </div>
 
                   <div class="m-4 px-5">
 
-                    <input ngModel required class="form-control" type="password" placeholder="Senha" aria-label="default input example" formControlName="password">
+                    <input
+                      [ngClass]="{ 'is-invalid': userAccountForm.get('email')?.errors && userAccountForm.get('email')?.touched }"
+                      required class="form-control" type="text" placeholder="E-mail" aria-label="default input example"
+                      formControlName="email">
 
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('password')?.errors?.['required'] && userAccountForm.get('password')?.touched"> Senha é obrigatório </p>
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('email')?.errors?.['required'] && userAccountForm.get('email')?.touched">
+                      Email é obrigatório
                     </div>
 
-                    <div class="text-start">
-                      <p class="error-message" *ngIf="userAccountForm.get('password')?.errors?.['minlength'] && userAccountForm.get('password')?.touched"> A senha tem que ter pelo menos 6 caracteres </p>
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('email')?.errors?.['email'] && userAccountForm.get('email')?.touched">
+                      Email inválido
+                    </div>
+
+                  </div>
+
+                  <div class="m-4 px-5">
+
+                    <input
+                      [ngClass]="{ 'is-invalid': userAccountForm.get('password')?.errors && userAccountForm.get('password')?.touched }"
+                      class="form-control" type="password" placeholder="Senha" aria-label="default input example"
+                      formControlName="password">
+
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('password')?.errors?.['required'] && userAccountForm.get('password')?.touched">
+                      Senha é obrigatório
+                    </div>
+
+                    <div class="invalid-feedback"
+                      *ngIf="userAccountForm.get('password')?.errors?.['minlength'] && userAccountForm.get('password')?.touched">
+                      A senha tem que ter pelo menos 6 caracteres
                     </div>
 
                   </div>
 
                   <div class="m-5">
 
-                    <button type="submit" [disabled]="!this.userAccountForm.valid" class="btn btn-lg btn-success col-10"> Cadastrar-se </button>
+                    <button type="submit" [disabled]="!this.userAccountForm.valid"
+                      class="btn btn-lg btn-success col-10"> Cadastrar-se </button>
 
                   </div>
 
@@ -178,11 +197,11 @@
                         <button (click)="loginWithFacebook()" class="btn btn-outline-primary btn-sm">
                           <i class="bi bi-facebook"></i>
                         </button>
-                        
+
                       </div>
 
                     </div>
-                    
+
                     <div class="col-2">
 
                       <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
@@ -201,35 +220,46 @@
 
                     <div class="m-5 px-5">
 
-                      <input class="form-control" formControlName="email" type="text" placeholder="E-mail" aria-label="default input example">
+                      <input
+                        [ngClass]="{ 'is-invalid': formLogin.get('email')?.errors && formLogin.get('email')?.touched }"
+                        required class="form-control" type="text" placeholder="E-mail"
+                        aria-label="default input example" formControlName="email">
 
-                      <div class="text-start">
-                        <p class="error-message" *ngIf="formLogin.get('email')?.errors?.['required'] && formLogin.get('email')?.touched"> Email é obrigatório </p>
+                      <div class="invalid-feedback"
+                        *ngIf="formLogin.get('email')?.errors?.['required'] && formLogin.get('email')?.touched">
+                        Email é obrigatório
                       </div>
 
-                      <div class="text-start">
-                        <p class="error-message" *ngIf="formLogin.get('email')?.errors?.['email'] && formLogin.get('email')?.touched"> Email inválido </p>
-                      </div>
-                      
-                    </div>
-
-                    <div class="m-5 px-5">
-
-                      <input class="form-control" formControlName="password" type="password" placeholder="Senha" aria-label="default input example">
-
-                      <div class="text-start">
-                        <p class="error-message" *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.touched"> Senha é obrigatório </p>
-                      </div>
-
-                      <div class="text-start">
-                        <p class="error-message" *ngIf="formLogin.get('password')?.errors?.['minlength'] && formLogin.get('password')?.touched"> A senha tem que ter pelo menos 6 caracteres </p>
+                      <div class="invalid-feedback"
+                        *ngIf="formLogin.get('email')?.errors?.['email'] && formLogin.get('email')?.touched">
+                        Email inválido
                       </div>
 
                     </div>
 
                     <div class="m-5 px-5">
 
-                      <button type="submit" [disabled]="!formLogin.valid" class="btn btn-lg btn-success col-10"> Entrar </button>
+                      <input
+                        [ngClass]="{ 'is-invalid': formLogin.get('password')?.errors && formLogin.get('password')?.touched }"
+                        class="form-control" type="password" placeholder="Senha" aria-label="default input example"
+                        formControlName="password">
+
+                      <div class="invalid-feedback"
+                        *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.touched">
+                        Senha é obrigatório
+                      </div>
+
+                      <div class="invalid-feedback"
+                        *ngIf="formLogin.get('password')?.errors?.['minlength'] && formLogin.get('password')?.touched">
+                        A senha tem que ter pelo menos 6 caracteres
+                      </div>
+
+                    </div>
+
+                    <div class="m-5 px-5">
+
+                      <button type="submit" [disabled]="!formLogin.valid" class="btn btn-lg btn-success col-10"> Entrar
+                      </button>
 
                     </div>
 
