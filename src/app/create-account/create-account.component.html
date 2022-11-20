@@ -106,24 +106,24 @@
                 <p>Ou use sua rede social ou seu email para registrar-se</p>
               </div>
 
-              <form [formGroup]="userAccountForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+              <form [formGroup]="userAccountForm" #form="ngForm" (ngSubmit)="signup(form)">
 
                 <div class="m-5 px-5">
 
                   <div class="m-4 px-5">
 
                     <input
-                      [ngClass]="{ 'is-invalid': userAccountForm.get('name')?.errors && userAccountForm.get('name')?.touched }"
+                      [ngClass]="{ 'is-invalid': userAccountForm.get('userName')?.errors && userAccountForm.get('userName')?.touched }"
                       class="form-control" type="text" placeholder="Nome completo" aria-label="default input example"
-                      formControlName="name">
+                      formControlName="userName">
 
                     <div class="invalid-feedback"
-                      *ngIf="userAccountForm.get('name')?.errors?.['required'] && userAccountForm.get('name')?.touched">
+                      *ngIf="userAccountForm.get('userName')?.errors?.['required'] && userAccountForm.get('userName')?.touched">
                       Nome é obrigatório
                     </div>
 
                     <div class="invalid-feedback"
-                      *ngIf="userAccountForm.get('name')?.errors?.['minlength'] && userAccountForm.get('name')?.touched">
+                      *ngIf="userAccountForm.get('userName')?.errors?.['minlength'] && userAccountForm.get('userName')?.touched">
                       O nome completo tem que ter pelo menos 6 caracteres
                     </div>
 
@@ -216,7 +216,7 @@
 
                 <div class="px-5">
 
-                  <form #form="ngForm" [formGroup]="formLogin" (ngSubmit)="onSubmit(form)">
+                  <form #form="ngForm" [formGroup]="formLogin" (ngSubmit)="signup(form)">
 
                     <div class="m-5 px-5">
 

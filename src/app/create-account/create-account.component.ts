@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { User } from './model/user.model';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-create-account',
@@ -21,7 +23,8 @@ export class CreateAccountComponent implements OnInit {
   constructor(
     private recaptchaV3Service: ReCaptchaV3Service,
     private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +34,7 @@ export class CreateAccountComponent implements OnInit {
     });
 
     this.userAccountForm = this.formBuilder.group({
-      name:     ['', [ Validators.required, Validators.minLength(6) ]],
+      userName:     ['', [ Validators.required, Validators.minLength(6) ]],
       email:    ['', [ Validators.required, Validators.email ]],
       password: ['', [ Validators.required, Validators.minLength(6) ]]
     });
@@ -62,9 +65,15 @@ export class CreateAccountComponent implements OnInit {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
-  onSubmit(form: FormGroupDirective) {
-    console.log(form.value);
-    console.log(form.valid);
+  signup(form: FormGroupDirective) {
+
+    console.log("entrou");
+
+    this.authService.signup(form.value).subscribe(
+      sucess => console.log("Usuário criado"),
+      error => console.error(error)
+    );
+
   }
 
 }
